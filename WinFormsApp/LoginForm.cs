@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-
+using Model;
 
 namespace WindowsFormsApplication1
 {
@@ -47,33 +47,29 @@ namespace WindowsFormsApplication1
 
         private void summit_Click(object sender, EventArgs e)
         {
+            //创建连接
             string name = txtName.Text;
             string pwd = txtPwd.Text;
-            MySqlConnection conn = new MySqlConnection(MyConnString);
-            MySqlCommand cmd;
-            conn.Open();
-            try
+            if (new BLL.LoginService().QueryUserIsExist(name, pwd))
             {
-                cmd = conn.CreateCommand();
-                cmd.CommandText = "select * from t_user where user_name =@userName and password =@pwd ";
-                cmd.Parameters.AddWithValue("@userName",name);
-                cmd.Parameters.AddWithValue("@pwd", pwd);
-                MySqlDataReader user = cmd.ExecuteReader();
-                if (user.HasRows)
-                {
-                    Console.WriteLine("登录成功！");
-                }
-                else
-                {
-                    Console.WriteLine("用户名或密码错误，登录失败！");
-                }
+                Console.WriteLine("登录成功！");
+                MainForm mainForm = new MainForm();
+                mainForm.Show();
+                this.Hide();
             }
-            catch {
-
+            else {
+                Console.WriteLine("用户名或密码错误，登录失败！");
+                //                     MessageBox.Show("用户名或密码错误，登录失败！", "提示消息");
+                Labelerrormsg.Text = "用户名或密码错误，登录失败！";
             }
         }
 
         private void txtPwd_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
         {
 
         }

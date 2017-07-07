@@ -42,6 +42,7 @@
             this.exit = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.Labelerrormsg = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +59,7 @@
             // rememberPwd
             // 
             this.rememberPwd.AutoSize = true;
-            this.rememberPwd.Location = new System.Drawing.Point(251, 153);
+            this.rememberPwd.Location = new System.Drawing.Point(255, 160);
             this.rememberPwd.Name = "rememberPwd";
             this.rememberPwd.Size = new System.Drawing.Size(72, 16);
             this.rememberPwd.TabIndex = 1;
@@ -149,11 +150,20 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("华文行楷", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.label4.Location = new System.Drawing.Point(21, 9);
+            this.label4.Location = new System.Drawing.Point(51, 10);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(413, 37);
+            this.label4.Size = new System.Drawing.Size(231, 37);
             this.label4.TabIndex = 9;
-            this.label4.Text = "ERP--高端人才管理系统";
+            this.label4.Text = "ERP管理系统";
+            // 
+            // Labelerrormsg
+            // 
+            this.Labelerrormsg.AutoSize = true;
+            this.Labelerrormsg.ForeColor = System.Drawing.Color.Red;
+            this.Labelerrormsg.Location = new System.Drawing.Point(253, 145);
+            this.Labelerrormsg.Name = "Labelerrormsg";
+            this.Labelerrormsg.Size = new System.Drawing.Size(0, 12);
+            this.Labelerrormsg.TabIndex = 10;
             // 
             // LoginForm
             // 
@@ -161,6 +171,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(442, 217);
             this.ControlBox = false;
+            this.Controls.Add(this.Labelerrormsg);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.comboDept);
@@ -178,6 +189,7 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -199,6 +211,7 @@
         private System.Windows.Forms.Button exit;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label Labelerrormsg;
     }
 }
 
